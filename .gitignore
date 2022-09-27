@@ -1,0 +1,11 @@
+$null
+*.o
+*.a
+*.code-workspace
+.vscode/**
+jni/obj/**
+jni/libs/**
+ipk/data/opt/etc/preload.d/
+bak/**
+doc/**
+frida/**

@@ -1,0 +1,21 @@
+# WTFOS - Autostart Recording
+
+## NOTES
+- This is a work in progress
+- This is an install only package, no configuration is needed
+- This project is distrubuted under MIT license
+
+##### Install
+- `opkg install wtfos-ar`
+
+##### Known issues
+- Recording stops on disarm, normal DJI behaviour.
+
+##### Credits
+- Inspired by funnels solution
+- https://github.com/funneld/djifpv_auto_start_recording
+
+#### TODO
+- [x] Write header file
+- [x] Write source code
+- [x] Update README.me
