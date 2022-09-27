@@ -3,7 +3,7 @@
 ## NOTES
 - This is a work in progress
 - This is an install only package, no configuration is needed
-- This project is distrubuted under MIT license
+- This project is distributed under MIT license
 
 ##### Install
 - `opkg install wtfos-ar`
@@ -19,3 +19,4 @@
 - [x] Write header file
 - [x] Write source code
 - [x] Update README.me
+- [ ] Disable recording stop on disarm
