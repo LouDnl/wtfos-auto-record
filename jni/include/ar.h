@@ -9,7 +9,7 @@
 
 
 /* Logging */
-#define LOG_TAG "WTFOS-AR"
+#define LOG_TAG "AUTO-RECORD"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
@@ -31,7 +31,7 @@ typedef enum record_state record_state_t;  // ptype record_state_t
 typedef enum record_mode record_mode_t;  // whatis record_mode_t
 
 /* Define typedefs to structs */
-typedef struct __gs_queue __gs_queue, *ptr__gs_queue;  // pointer P__gs_queue is unused?
+typedef struct __gs_queue __gs_queue, *ptr__gs_queue;  // pointer ptr__gs_queue is unused?
 typedef struct __gs_queue gs_queue_t;  // info types gs_queue_t
 typedef struct __gs_gui_config __gs_gui_config, *ptr__gs_gui_config;
 typedef struct __gs_gui_config gs_gui_config_t;  // info types gs_gui_config_t
@@ -346,7 +346,7 @@ struct __gs_gui_config {  // ptype struct __gs_gui_config
 
 /* Define empty variables */
 static gs_link_stat_t connection_status;
-static record_state_t recording_state;
+static record_state_t recording_state;  // predefine variable recording_state as struct record_state_t
 
 /* Define pre set variables */
 static bool recording_flag = false;  // boolean - default false - used to check if we're already recording or not

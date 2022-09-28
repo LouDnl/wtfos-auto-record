@@ -1,6 +1,7 @@
-Package: wtfos-ar
-Version: 1.0
+Package: auto-record
+Version: 1.0.0
 Maintainer: LouD <loud@the-legacy.net>
 Description: Enable auto recording on UAV connection
 Architecture: pigeon-glasses
 Depends: wtfos-modloader
+Homepage: https://github.com/LouDnl/WTFOS-Automatic-recording-package

@@ -6,7 +6,7 @@
 - This project is distributed under MIT license
 
 ##### Install
-- `opkg install wtfos-ar`
+- `opkg install auto-record`
 
 ##### Known issues
 - Recording stops on disarm, normal DJI behaviour.
