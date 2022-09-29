@@ -1,11 +1,13 @@
 $null
 *.o
 *.a
+*.ipk
+*.so
 *.code-workspace
 .vscode/**
-jni/obj/**
-jni/libs/**
-ipk/data/opt/etc/preload.d/
 bak/**
 doc/**
-frida/**
+jni/obj/**
+jni/libs/**
+ipk/tmp/**
+ipk/data/opt/etc/preload.d/**

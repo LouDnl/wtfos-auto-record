@@ -1,5 +1,5 @@
 #!/system/bin/sh
 
-#modmanager enable diy_glasses wtfos-ar
+#modmanager enable diy_glasses auto-record
 #we use dinit instead as this makes it configurator friendly out of the box
-/opt/sbin/dinitctl -u enable wtfos-ar || true
+/opt/sbin/dinitctl -u enable auto-record || true

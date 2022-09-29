@@ -1,37 +1,30 @@
-ifeq ($(OS),Windows_NT)
-   $(info "shell is Windows cmd.exe")
-   RM = rmdir /s /q
-   FixPath = $(subst /,\,$1)
-   redirect = 2> NUL
-else ifeq ($(shell uname), Linux)
-   $(info "shell is Linux")
-   RM = rm -rf
-   FixPath = $1
-   redirect = 2> /dev/null
-else
-   $(info "shell is Windows PowerShell")
-   $(info $(OS))
-   RM = Remove-Item -fo -r $1
-   FixPath = $(subst /,\,$1)
-   redirect = *> $$null
-endif
+# Makefile.mk start
+default: clean	all
 
-all: clean default
+all: ./jni/src/*
+	ndk-build
+#	ndk-build -B V=1
+#	ndk-build -B V=1 NDK_APP_OUT=./obj NDK_APP_LIBS_OUT=./libs
+# NDK_PROJECT_PATH=./jni NDK_APPLICATION_MK=./jni/Application.mk
+# NDK_APP_LIBS_OUT=./jni/libs
 
-default: ar
-
-ar: jni/src/*
-	ndk-build NDK_PROJECT_PATH=./jni/ NDK_APPLICATION_MK=./jni/Application.mk
-
-install: all
+install:
 	install -d ipk/data/opt/etc/preload.d/
-	install jni/libs/armeabi-v7a/lib*.so ipk/data/opt/etc/preload.d/
+	install libs/armeabi-v7a/*.so ipk/data/opt/etc/preload.d/
+	chmod +x ./ipk/control/postinst
+	chmod +x ./ipk/control/prerm
 
-ipk: all
+ipk: all install
 	$(MAKE) -C ipk clean
-	$(MAKE) install
 	$(MAKE) -C ipk
+	mv ipk/*.ipk ./
 
 clean:
-	-$(RM) $(call FixPath,./jni/libs/) $(redirect)
-	-$(RM) $(call FixPath,./jni/obj/) $(redirect)
+	$(MAKE) -C ipk clean
+	-rm -f *.ipk 2>/dev/null
+	-rm -f ./ipk/data/opt/etc/preload.d/libauto-record.so 2>/dev/null
+	-rm -rf ./jni/libs 2>/dev/null
+	-rm -rf ./jni/obj 2>/dev/null
+	-rm -rf ./libs 2>/dev/null
+	-rm -rf ./obj 2>/dev/null
+	-rm -rf ./jni/libs 2>/dev/null
